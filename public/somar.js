@@ -9,10 +9,12 @@ formulario.addEventListener('submit', function (e) {
     var n2 = parseInt(campo2.value);
     if (isNaN(n1)) {
         mensagem.innerText = 'O primeiro número foi preenchido incorretamente!';
+        campo1.focus();
         return;
     }
     if (isNaN(n2)) {
         mensagem.innerText = 'O segundo número foi preenchido incorretamente!';
+        campo2.focus();
         return;
     }
     var soma = n1 + n2;

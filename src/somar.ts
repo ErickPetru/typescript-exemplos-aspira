@@ -11,11 +11,13 @@ formulario.addEventListener('submit', (e: Event) => {
 
   if (isNaN(n1)) {
     mensagem.innerText = 'O primeiro número foi preenchido incorretamente!'
+    campo1.focus()
     return
   }
 
   if (isNaN(n2)) {
     mensagem.innerText = 'O segundo número foi preenchido incorretamente!'
+    campo2.focus()
     return
   }
 
