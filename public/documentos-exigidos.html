@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Documentos Exigidos - Exemplos com TypeScript</title>
+  <link rel="stylesheet" href="base.css">
+</head>
+<body>
+  <form>
+    <h1>Documentos Exigidos</h1>
+    <p>Preencha seus dados para descobrir quais documentos você precisa apresentar.</p>
+
+    <label>
+      <span>Nome:</span>
+      <input id="nome" placeholder="Informe seu nome completo">
+    </label>
+
+    <label>
+      <span>Data de nascimento:</span>
+      <input id="nascimento" type="date">
+    </label>
+
+    <label>
+      <span>Sexo:</span>
+      <select id="sexo">
+        <option value="">Selecione...</option>
+        <option value="f">Feminino</option>
+        <option value="m">Masculino</option>
+      </select>
+    </label>
+
+    <label>
+      <input id="termosAceitos" type="checkbox">
+      <span>Aceito os termos e condições desta inscrição.</span>
+    </label>
+
+    <button>Verificar Documentos</button>
+  </form>
+
+  <div id="resposta"></div>
+
+  <script src="documentos-exigidos.js"></script>
+</body>
+</html>
