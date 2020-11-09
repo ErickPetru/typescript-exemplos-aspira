@@ -74,7 +74,34 @@
       return
     }
 
-    resposta.innerText = 'Uhuuuu!'
+    resposta.innerText = ''
     resposta.className = 'positive'
+
+    resposta.innerHTML = `<p>Olá, ${valorNome}. Apresente estes documentos:</p>`
+    resposta.innerHTML += `<ul>`
+    resposta.innerHTML += `<li>Documento pessoal com foto (RG, CNH)</li>`
+
+    const hoje = new Date()
+    let idade = hoje.getFullYear() - dataNascimento.getFullYear()
+
+    if (dataNascimento.getMonth() > hoje.getMonth()) {
+      idade--
+    } else if (hoje.getMonth() == dataNascimento.getMonth()) {
+      if (dataNascimento.getDate() > hoje.getDate()) {
+        idade--
+      }
+    }
+
+    if (sexo.value === 'm' && idade > 17) {
+      resposta.innerHTML += `<li>Documento de cumprimento com as obrigações militares (ou certificado de dispensa)</li>`
+    }
+
+    if (idade > 15 && idade < 18 || idade > 69) {
+      resposta.innerHTML += `<li>Opcionalmente título eleitoral</li>`
+    } else if (idade > 17 && idade < 70) {
+      resposta.innerHTML += `<li>Título eleitoral e comprovante de votação na última eleição</li>`
+    }
+
+    resposta.innerHTML += `</ul>`
   })
 }
