@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Alunos - Exemplos com TypeScript</title>
+</head>
+<body>
+  <svg id="loading" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin: auto; background: rgb(255, 255, 255); display: none; shape-rendering: auto;" width="200px" height="200px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+    <circle cx="50" cy="50" fill="none" stroke="#e15b64" stroke-width="10" r="35" stroke-dasharray="164.93361431346415 56.97787143782138">
+      <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" dur="1s" values="0 50 50;360 50 50" keyTimes="0;1"></animateTransform>
+    </circle>
+  </svg>
+
+  <form>
+    <input id="number" placeholder="Número de RA">
+    <input id="name" placeholder="Nome do aluno">
+    <select id="gender">
+      <option value="">Selecione o sexo</option>
+      <option value="f">Feminino</option>
+      <option value="m">Masculino</option>
+    </select>
+    <input id="course" placeholder="Nome do curso">
+
+    <button>Salvar</button>
+  </form>
+
+  <p id="message"></p>
+
+  <script src="cadastro-alunos.js" type="module"></script>
+</body>
+</html>
