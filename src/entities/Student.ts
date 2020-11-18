@@ -1,9 +1,9 @@
 import Gender from './Gender.js'
 import Person from './Person.js'
 
-export class Student extends Person {
+export class Student extends Person implements IShowYourself {
   private _number: number
-  course: string
+  public course: string
 
   constructor (number: number, name: string, gender: Gender, course: string) {
     super(name, gender)
@@ -31,6 +31,18 @@ export class Student extends Person {
 
   get number() {
     return this._number
+  }
+
+  public showYourself () {
+    if (this.gender === Gender.Male) {
+      return `Sou um aluno, meu nome é ${this.name}.`
+    } else {
+      return `Sou uma aluna, meu nome é ${this.name}.`
+    }
+  }
+
+  public showYourselfWithGreeting (greeting: string) {
+    return this.showYourself() + ' ' + greeting
   }
 }
 

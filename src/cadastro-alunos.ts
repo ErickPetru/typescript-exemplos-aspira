@@ -82,10 +82,8 @@ function showStudents() {
   for (const student of students) {
     lines += `
       <tr>
-        <td>${ student.number }</td>
-        <td>${ student.course }</td>
-        <td>${ student.gender }</td>
-        <td>${ student.showYourself() }</td>
+        <td>${ (student as IShowYourself).name }</td>
+        <td>${ (student as IShowYourself).showYourself() }</td>
       </tr>
     `
   }
@@ -94,9 +92,7 @@ function showStudents() {
   table.innerHTML = `
     <thead>
       <tr>
-        <th>RA</th>
-        <th>Curso</th>
-        <th>Sexo</th>
+        <th>Nome</th>
         <th>Auto-Apresentação</th>
       </tr>
     </thead>
