@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Professores - Exemplos com TypeScript</title>
+  <link rel="stylesheet" href="base.css">
+</head>
+<body>
+  <header>
+    <h1>Cadastro de Professores</h1>
+    <p>
+      Preencha os dados desejados de cada professor para cadastrar.
+    </p>
+  </header>
+
+  <form novalidate>
+    <input id="name" placeholder="Nome do professor" autocomplete="name">
+    <select id="gender" required>
+      <option value="">Selecione o sexo</option>
+      <option value="f">Feminino</option>
+      <option value="m">Masculino</option>
+    </select>
+    <select id="degree" required>
+      <option value="">Selecione a titulação</option>
+      <option value="graduted">Graduado</option>
+      <option value="master">Mestrado</option>
+      <option value="doctor">Doutorado</option>
+    </select>
+
+    <button>Salvar</button>
+  </form>
+
+  <svg id="loading" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+    <circle cx="50" cy="50" fill="none" stroke="#0c90a1" stroke-width="10" r="35" stroke-dasharray="164.93361431346415 56.97787143782138">
+      <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" dur="1s" values="0 50 50;360 50 50" keyTimes="0;1"></animateTransform>
+    </circle>
+  </svg>
+
+  <p id="message"></p>
+
+  <table></table>
+
+  <script src="cadastro-professores.js" type="module"></script>
+</body>
+</html>
