@@ -2,14 +2,14 @@ import Gender from './Gender.js'
 import Person from './Person.js'
 
 export class Student extends Person {
-  #number: number
+  private _number: number
   course: string
 
   constructor (number: number, name: string, gender: Gender, course: string) {
     super(name, gender)
 
     if (!name) {
-      throw new ReferenceError('nome')
+      throw new ReferenceError('name')
     }
 
     if (!gender) {
@@ -21,7 +21,7 @@ export class Student extends Person {
     }
 
     if (number == 1234 || number == 5678 || number == 9012) {
-      this.#number = number
+      this._number = number
     } else {
       throw new Error('Formato de RA inválido')
     }
@@ -30,15 +30,7 @@ export class Student extends Person {
   }
 
   get number() {
-    return this.#number
-  }
-
-  set number(value: number) {
-    if (value == 1234 || value == 5678 || value == 9012) {
-      this.#number = value
-    } else {
-      throw new Error('Formato de RA inválido')
-    }
+    return this._number
   }
 }
 
