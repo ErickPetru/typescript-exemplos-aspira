@@ -4,18 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cadastro de Alunos - Exemplos com TypeScript</title>
+  <link rel="stylesheet" href="base.css">
 </head>
 <body>
-  <svg id="loading" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin: auto; background: rgb(255, 255, 255); display: none; shape-rendering: auto;" width="200px" height="200px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
-    <circle cx="50" cy="50" fill="none" stroke="#e15b64" stroke-width="10" r="35" stroke-dasharray="164.93361431346415 56.97787143782138">
-      <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" dur="1s" values="0 50 50;360 50 50" keyTimes="0;1"></animateTransform>
-    </circle>
-  </svg>
+  <header>
+    <h1>Cadastro de Alunos</h1>
+    <p>
+      Preencha os dados desejados de cada aluno para cadastrar.
+    </p>
+  </header>
 
-  <form>
+  <form novalidate>
     <input id="number" placeholder="Número de RA">
-    <input id="name" placeholder="Nome do aluno">
-    <select id="gender">
+    <input id="name" placeholder="Nome do aluno" autocomplete="name">
+    <select id="gender" required>
       <option value="">Selecione o sexo</option>
       <option value="f">Feminino</option>
       <option value="m">Masculino</option>
@@ -25,7 +27,15 @@
     <button>Salvar</button>
   </form>
 
+  <svg id="loading" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+    <circle cx="50" cy="50" fill="none" stroke="#0c90a1" stroke-width="10" r="35" stroke-dasharray="164.93361431346415 56.97787143782138">
+      <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" dur="1s" values="0 50 50;360 50 50" keyTimes="0;1"></animateTransform>
+    </circle>
+  </svg>
+
   <p id="message"></p>
+
+  <table></table>
 
   <script src="cadastro-alunos.js" type="module"></script>
 </body>

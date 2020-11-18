@@ -4,47 +4,43 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Documentos Exigidos - Exemplos com TypeScript</title>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css" />
   <link rel="stylesheet" href="base.css">
 </head>
 <body>
-  <form novalidate>
+  <header>
     <h1>Documentos Exigidos</h1>
-    <p>Preencha seus dados para descobrir quais documentos você precisa apresentar.</p>
+    <p>
+      Preencha seus dados para descobrir quais documentos você precisa apresentar.
+    </p>
+  </header>
 
-    <label>
-      <span>Nome:</span>
-      <input id="nome" placeholder="Informe seu nome completo">
-    </label>
+  <form novalidate>
+    <input id="nome" placeholder="Informe seu nome completo">
+    <input id="email" type="email" placeholder="Informe seu e-mail preferencial">
+    <input id="nascimento" type="date" placeholder="Informe sua data de nascimento">
 
-    <label>
-      <span>E-mail:</span>
-      <input id="email" type="email" placeholder="Informe seu e-mail preferencial">
-    </label>
+    <select id="sexo" required>
+      <option value="">Selecione...</option>
+      <option value="f">Feminino</option>
+      <option value="m">Masculino</option>
+    </select>
 
-    <label>
-      <span>Data de nascimento:</span>
-      <input id="nascimento" type="date">
-    </label>
+    <div>
+      <div class="checkbox">
+        <input id="termosAceitos" type="checkbox">
+        <label for="termosAceitos" />
+      </div>
 
-    <label>
-      <span>Sexo:</span>
-      <select id="sexo">
-        <option value="">Selecione...</option>
-        <option value="f">Feminino</option>
-        <option value="m">Masculino</option>
-      </select>
-    </label>
-
-    <label>
-      <input id="termosAceitos" type="checkbox">
-      <span>Aceito os termos e condições desta inscrição.</span>
-    </label>
+      <label for="termosAceitos">Aceito os termos e condições desta inscrição</label>
+    </div>
 
     <button>Verificar Documentos</button>
   </form>
 
   <div id="resposta"></div>
 
-  <script src="documentos-exigidos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
+  <script src="documentos-exigidos.js" type="module"></script>
 </body>
 </html>

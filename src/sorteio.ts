@@ -1,7 +1,9 @@
 {
-  const sortear = document.querySelector<HTMLButtonElement>('#sortear')!
+  const form = document.querySelector<HTMLFormElement>('form')!
 
-  sortear.addEventListener('click', () => {
+  form.addEventListener('submit', (e: Event) => {
+    e.preventDefault()
+
     const nomes = [
       'ALESSANDRO BARROS PEREIRA',
       'ALEXANDRE TREVISAN RODRIGUES PEREIRA',
@@ -35,6 +37,13 @@
     const p = document.createElement('p')
     document.body.append(p)
 
-    p.innerText = nomes[sorteado]
+    p.innerText = capitalizar(nomes[sorteado])
+    p.className = 'positive'
   })
+
+  function capitalizar(texto: string) {
+    const palavras = texto.toLowerCase().trim().replace(/\s+/g, ' ').split(' ')
+    texto = palavras.map((p) => p.charAt(0).toUpperCase() + p.substr(1)).join(' ')
+    return texto.replace(/\s(D(a|e|o)s?|E)\s/g, (artigo) => artigo.toLowerCase())
+  }
 }

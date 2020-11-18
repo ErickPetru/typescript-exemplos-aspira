@@ -4,10 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cumprimentar Usuário - Exemplos com TypeScript</title>
+  <link rel="stylesheet" href="base.css">
 </head>
 <body>
-  <form>
-    <input class="custom-input" placeholder="Qual seu nome?">
+  <header>
+    <h1>Cumprimentar Usuário</h1>
+    <p>
+      Lendo o valor de um <i>input</i> e utilizando para mostrar
+      condicionalmente uma mensagem diferente se estiver preenchido.
+    </p>
+  </header>
+
+  <form novalidate>
+    <input placeholder="Qual seu nome?" required>
     <button>Cumprimentar</button>
   </form>
 
