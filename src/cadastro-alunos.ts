@@ -1,5 +1,6 @@
 import Gender from './entities/Gender.js'
 import Student from './entities/Student.js'
+import Animal from './entities/Animal.js'
 
 const number = document.querySelector<HTMLInputElement>('#number')!
 const name = document.querySelector<HTMLInputElement>('#name')!
@@ -80,6 +81,10 @@ function showStudents() {
   let lines = ''
 
   for (const student of students) {
+    // Impossível usar tipagem para acessar métodos adicionados por Decorator.
+    // Por isso, a convesão forçada do objeto para any.
+    console.log((student as any).getVersion())
+
     lines += `
       <tr>
         <td>${ (student as IShowYourself).name }</td>
@@ -101,3 +106,7 @@ function showStudents() {
     </tbody>
   `
 }
+
+// Apenas para fins de teste de Decorator, instancinando um Animal.
+const papagaio = new Animal('Currupaco')
+console.log((papagaio as any).getVersion())

@@ -1,6 +1,10 @@
+import Log from '../decorators/Log.js'
+import Version from '../decorators/Version.js'
 import Gender from './Gender.js'
 import Person from './Person.js'
 
+@Log('Test')
+@Version<Student>('1.5.1')
 export class Student extends Person implements IShowYourself {
   private _number: number
   public course: string

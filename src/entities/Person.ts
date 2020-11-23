@@ -1,5 +1,7 @@
+import Log from '../decorators/Log.js'
 import Gender from './Gender.js'
 
+@Log('Test')
 export class Person implements IShowYourself {
   public name: string
   public gender: Gender
