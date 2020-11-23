@@ -1,7 +1,6 @@
+import Degree from './Degree.js'
 import Gender from './Gender.js'
 import Person from './Person.js'
-
-type Degree = 'graduted' | 'master' | 'doctor'
 
 export class Teacher extends Person implements IShowYourself {
   public degree: Degree

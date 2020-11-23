@@ -1,3 +1,4 @@
+import Degree from './entities/Degree.js'
 import Gender from './entities/Gender.js'
 import Teacher from './entities/Teacher.js'
 
@@ -40,7 +41,7 @@ form.addEventListener('submit', (e: Event) => {
       const teacher = new Teacher(
         name.value,
         gender.value === 'f' ? Gender.Female : Gender.Male,
-        degree.value
+        degree.value as Degree
       )
 
       teachers.push(teacher)
@@ -69,7 +70,7 @@ function showTeachers() {
       teachers.push(new Teacher(
         name.value,
         gender.value === 'f' ? Gender.Female : Gender.Male,
-        degree.value
+        degree.value as Degree
       ))
     }
   }
