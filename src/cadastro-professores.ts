@@ -1,6 +1,7 @@
 import Degree from './entities/Degree.js'
 import Gender from './entities/Gender.js'
 import Teacher from './entities/Teacher.js'
+import { trimAll, capitalize } from './string-functions.js'
 
 const name = document.querySelector<HTMLInputElement>('#name')!
 const gender = document.querySelector<HTMLSelectElement>('#gender')!
@@ -15,18 +16,49 @@ const teachers: Teacher[] = []
 showTeachers()
 name.focus()
 
-const intervalId = setInterval(() => {
-  if (document.body.style.background === 'rgb(102, 0, 102)') {
-    document.body.style.background = 'rgb(21, 21, 21)'
-  } else {
+gender.addEventListener('change', () => {
+  if (gender.value === 'f') {
     document.body.style.background = 'rgb(102, 0, 102)'
+  } else if (gender.value === 'm') {
+    document.body.style.background = 'rgb(0, 0, 102)'
+  } else {
+    document.body.style.background = 'rgb(21, 21, 21)'
   }
-}, 1000)
+})
+
+gender.addEventListener('change', () => {
+  console.log(gender.value)
+})
+
+// const intervalId = setInterval(() => {
+//   if (document.body.style.background === 'rgb(102, 0, 102)') {
+//     document.body.style.background = 'rgb(21, 21, 21)'
+//   } else {
+//     document.body.style.background = 'rgb(102, 0, 102)'
+//   }
+// }, 1000)
+
+function isFormValid (...elements: (HTMLInputElement | HTMLSelectElement)[]) {
+  for (const element of elements) {
+    if (element.value) {
+      element.className = ''
+    } else {
+      message.innerText = element.getAttribute('data-message')!
+      message.className = element.className = 'negative'
+      element.focus()
+      return false
+    }
+  }
+
+  return true
+}
 
 form.addEventListener('submit', (e: Event) => {
   e.preventDefault()
 
-  clearInterval(intervalId)
+  // clearInterval(intervalId)
+
+  if (!isFormValid(name, gender, degree)) return false
 
   document.body.style.background = 'rgb(21, 21, 21)'
   message.innerText = ''
@@ -34,12 +66,10 @@ form.addEventListener('submit', (e: Event) => {
   form.style.display = 'none'
   loading.style.display = 'block'
 
-  // TODO: Construir validações dos campos.
-
   setTimeout(() => {
     try {
       const teacher = new Teacher(
-        name.value,
+        capitalize(trimAll(name.value)),
         gender.value === 'f' ? Gender.Female : Gender.Male,
         degree.value as Degree
       )
@@ -48,6 +78,11 @@ form.addEventListener('submit', (e: Event) => {
 
       // Serialização no JS ocorre em forma de JSON
       localStorage.setItem('teachers', JSON.stringify(teachers))
+
+      name.className = name.value = ''
+      gender.className = gender.value = ''
+      degree.className = degree.value = ''
+
       showTeachers()
     } catch (error: any) {
       console.error(error)
@@ -68,9 +103,9 @@ function showTeachers() {
 
     for (const item of data) {
       teachers.push(new Teacher(
-        name.value,
-        gender.value === 'f' ? Gender.Female : Gender.Male,
-        degree.value as Degree
+        item.name,
+        item.gender === 'f' ? Gender.Female : Gender.Male,
+        item.degree as Degree
       ))
     }
   }

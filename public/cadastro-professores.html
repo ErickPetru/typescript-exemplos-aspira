@@ -15,13 +15,13 @@
   </header>
 
   <form novalidate>
-    <input id="name" placeholder="Nome do professor" autocomplete="name">
-    <select id="gender" required>
+    <input id="name" placeholder="Nome do professor" autocomplete="name" data-message="Por favor, preencha o nome!">
+    <select id="gender" required data-message="Quero saber seu sexo!">
       <option value="">Selecione o sexo</option>
       <option value="f">Feminino</option>
       <option value="m">Masculino</option>
     </select>
-    <select id="degree" required>
+    <select id="degree" required data-message="Sem titulação, tá fora...">
       <option value="">Selecione a titulação</option>
       <option value="gradueted">Graduado</option>
       <option value="master">Mestrado</option>
