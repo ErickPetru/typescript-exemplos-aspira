@@ -1,4 +1,5 @@
-export const trimAll = (text: string) => text.trim().replace(/\s+/g, ' ')
+export const trimAll = (text: string) =>
+  text.trim().replace(/\s+/g, ' ')
 
 export const capitalize = (text: string) => {
   const words = text.split(' ')

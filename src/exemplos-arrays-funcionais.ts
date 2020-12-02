@@ -88,3 +88,43 @@ select.append(
   )
 )
 document.body.append(select)
+
+numbers = [2, 3, 5]
+
+// É possível resolver de forma imperativa tradicional.
+let sum = 0
+for (const n of numbers) {
+  sum += n
+}
+
+console.clear()
+console.log(sum)
+
+// Possibilidade reduzir um conjunto de dados em um único valor.
+const sumAll = (result: number, current: number) => result + current
+console.log(numbers.reduce(sumAll, 0))
+
+let products = [
+  { id: 1, title: 'Sapato Social', price: 69.9 },
+  { id: 2, title: 'Tênis Esportivo', price: 139.9 },
+  { id: 3, title: 'Meia', price: 14.95 },
+  { id: 4, title: 'Relógio', price: 1285.75 },
+  { id: 5, title: 'Bola de Basquete', price: 30 },
+  { id: 6, title: 'Videogame', price: 7950 },
+]
+
+const sumPrices = (result: number, current: typeof products[0]) =>
+  result + current.price
+
+console.clear()
+console.log('Preço total: ', products.reduce(sumPrices, 0))
+console.log('Média de preços: ', products.reduce(sumPrices, 0) / products.length)
+
+console.log(products.reduce((r: number, c: typeof products[0]) =>
+  r + c.id, 0))
+
+const product = JSON.parse(JSON.stringify(products.find((product) => product.id === 3)!))
+product.title = 'Meia Alterada'
+
+console.log(product)
+console.log(products)
